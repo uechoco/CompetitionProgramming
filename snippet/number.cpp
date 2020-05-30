@@ -14,6 +14,10 @@ int sumOfDigits(int n) {
 
 int main(){
 
+  // 浮動小数点型の桁数を指定出来るマニピュレータ
+  cout << std::fixed << std::setprecision(8) << (double)(12.9295871325) << endl;
+
+
   cout << sumOfDigits(57) << endl;
   return 0;
 }
