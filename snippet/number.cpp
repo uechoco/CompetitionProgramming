@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 円周率
+const double DOUBLE_PI = acos(-1.0);
+const long double LONGDOUBLE_PI = acosl(-1.0);
+
 // 各桁の和を計算する関数
 int sumOfDigits(int n) {
   int sum = 0;
