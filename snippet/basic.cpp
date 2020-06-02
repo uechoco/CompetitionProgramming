@@ -3,8 +3,11 @@
 using namespace std;
 
 // syntax sugar: `for (int i = 0; i < N; ++i)`
-#define REP(T, name, beginValue, endCondValue) \
-  for (T name = beginValue; name < endCondValue; ++name)
+#define rep(i, N) for (int i = 0; i < (int)(n); ++i)
+
+// syntax sugar: `for (int i = 0; i < N; ++i)`
+#define REP(type, name, beginValue, endCondValue) \
+  for (type name = beginValue; name < endCondValue; ++name)
 
 int main(){
   int r, c;
