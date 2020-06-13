@@ -15,7 +15,7 @@ using namespace std;
     std::vector<T> name(d1, initValue);
 
 
-// ABC096C - Half and Half
+// ARC096A - Half and Half
 int main(){
   int a, b, c, x, y; // A=A円, B=B円, AB=C円
   cin >> a >> b >> c >> x >> y;
