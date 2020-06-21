@@ -19,8 +19,18 @@ using namespace std;
 
 
 int main(){
-  int n;
-  cin >> n;
-  cout << "Yes" << endl;
+  int n, k;
+  cin >> n >> k;
+  vector<int> ai(n, 0);
+  rep(i, n) {
+    cin >> ai[i];
+  }
+  std::sort(ai.begin(), ai.end());
+  int total= 0;
+  rep(i, k) {
+    total += ai[i];
+  }
+  cout << total << endl;
+
   return 0;
 }

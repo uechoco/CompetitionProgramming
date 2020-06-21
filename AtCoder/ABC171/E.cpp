@@ -20,7 +20,23 @@ using namespace std;
 
 int main(){
   int n;
-  cin >> n;
-  cout << "Yes" << endl;
+  cin >> n; // 偶数
+  vector<ll> ai(n, 0);
+  rep(i,n) {
+    cin >> ai[i];
+  }
+
+  ll totalxor =ai[0];
+  for(int i = 1; i < n; ++i) {
+    totalxor = totalxor ^ ai[i];
+  }
+  rep(i,n) {
+    if (i > 0) {
+      cout << " ";
+    }
+    cout << (totalxor ^ ai[i]);
+  }
+  cout << endl;
+
   return 0;
 }

@@ -19,8 +19,12 @@ using namespace std;
 
 
 int main(){
-  int n;
-  cin >> n;
-  cout << "Yes" << endl;
+  char a;
+  cin >> a;
+  if (a <= 'Z') {
+    cout << "A" << endl;
+  } else {
+    cout << "a" << endl;
+  }
   return 0;
 }

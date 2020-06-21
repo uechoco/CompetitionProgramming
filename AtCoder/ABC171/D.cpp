@@ -19,8 +19,35 @@ using namespace std;
 
 
 int main(){
-  int n;
+  int n, a;
   cin >> n;
-  cout << "Yes" << endl;
+  unordered_map<int, int> amap; // 数値, 個数
+  ll total = 0;
+  rep(i, n) {
+    cin >> a;
+    amap[a]++;
+    total += a;
+  }
+  int q, b, c;
+  cin >> q;
+  vector<ll> ret;
+  rep(i,q) {
+    cin >> b >> c;
+    if (amap.find(b) != amap.end()) {
+      int num = amap[b];
+      if (num > 0) {
+        total += (c-b) * num;
+        amap[c] += amap[b];
+        amap[b] = 0;
+      }
+    }
+    ret.push_back(total);
+  }
+
+  // 答え
+  rep(i,q) {
+    cout << ret[i] << endl;
+  }
+
   return 0;
 }
