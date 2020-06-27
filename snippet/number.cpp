@@ -86,6 +86,22 @@ std::vector<T> prime_factorize_list(T N) {
   return res;
 }
 
+// 最大公約数
+template <typename T>
+T greatestCommonDivisor(T m, T n) {
+  return m == 0 ? std::abs(n)
+	: n == 0 ? std::abs(m)
+	: greatestCommonDivisor(n, m % n);
+}
+
+// 最小公倍数
+template <typename T>
+T leastCommonMultiple(T m, T n) {
+  return (m != 0 && n != 0)
+	? (std::abs(m) / greatestCommonDivisor(m, n)) * std::abs(n)
+	: 0;
+}
+
 int main(){
   // 浮動小数点型の桁数を指定出来るマニピュレータ
   cout << std::fixed << std::setprecision(8) << (double)(12.9295871325) << endl;
@@ -140,8 +156,30 @@ int main(){
   }
 
   { // 桁数
+    // 8
     cout << "数値の桁数を求める[57234698]:" << calc_digit(57234698) << endl;
+    // 12
     cout << "数値の各桁の和を求める[57]:" << sum_of_digits(57) << endl;
+  }
+
+  { // 最大公約数・最小公倍数
+    // gcd(12,42) = 6
+    cout << "greatestCommonDivisor(12,42):" << greatestCommonDivisor(12,42) << endl;
+    // gcd(42,12) = 6
+    cout << "greatestCommonDivisor(42,12):" << greatestCommonDivisor(42,12) << endl;
+    // gcd(0,0) = 0
+    cout << "greatestCommonDivisor(0,0):" << greatestCommonDivisor(0,0) << endl;
+    // gcd(3LL,-7LL) = 1
+    cout << "greatestCommonDivisor(3LL,-7LL):" << greatestCommonDivisor(3LL,-7LL) << endl;
+    // lcm(3,4) = 12
+    cout << "leastCommonMultiple(3,4):" << leastCommonMultiple(3,4) << endl;
+    // lcm(4,3) = 12
+    cout << "leastCommonMultiple(4,3):" << leastCommonMultiple(4,3) << endl;
+    // lcm(0,1) = 0
+    cout << "leastCommonMultiple(0,1):" << leastCommonMultiple(0,1) << endl;
+    // lcm(4LL,-6LL) = 12
+    cout << "leastCommonMultiple(4u,-6l):" << leastCommonMultiple(4LL,-6LL) << endl;
+
   }
   return 0;
 }
