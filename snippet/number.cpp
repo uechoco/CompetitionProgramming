@@ -26,6 +26,15 @@ int calc_digit(T n) {
   return res;
 }
 
+// nのketa桁目の数値を取得する。ketaは1以上の整数である必要がある。
+template <typename T>
+int get_digit(T n, int keta) {
+  for(int i = 1; i < keta; ++i) {
+    n /= 10;
+  }
+  return n % 10;
+}
+
 // 素数判定
 template <typename T>
 bool is_prime(T n) {
@@ -160,6 +169,9 @@ int main(){
     cout << "数値の桁数を求める[57234698]:" << calc_digit(57234698) << endl;
     // 12
     cout << "数値の各桁の和を求める[57]:" << sum_of_digits(57) << endl;
+    // n桁目の数値を取得する
+    cout << "数値のn桁目の数を抽出[12345,2]:" << get_digit(12345, 2) << endl;
+    cout << "数値のn桁目の数を抽出[9,1]:" << get_digit(9, 1) << endl;
   }
 
   { // 最大公約数・最小公倍数
