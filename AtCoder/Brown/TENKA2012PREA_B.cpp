@@ -18,10 +18,33 @@ using namespace std;
 #define ll long long
 #define ld long double
 
-
 int main(){
-  int n;
-  cin >> n;
-  cout << "Yes" << endl;
+  string s; // length <= 2000
+  getline(cin, s);
+
+  string ans;
+  ans.reserve(s.length()+1);
+
+  bool spacemode = false;
+  const int n = (int)s.length();
+  rep(i,n) {
+    if (spacemode) {
+      if (s[i] == ' ') {
+        continue;
+      } else {
+        ans += ',';
+        ans += s[i];
+        spacemode = false;
+      }
+    } else {
+      if (s[i] != ' ') {
+        ans += s[i];
+      } else {
+        spacemode = true;
+      }
+    }
+  }
+  cout << ans << endl;
+
   return 0;
 }

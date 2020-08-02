@@ -18,10 +18,28 @@ using namespace std;
 #define ll long long
 #define ld long double
 
-
 int main(){
-  int n;
-  cin >> n;
-  cout << "Yes" << endl;
+  string s; // length <= 300
+  cin >> s;
+  int k;
+  cin >> k;
+
+  const int sl = (int)s.length();
+  if (sl < k) {
+    cout << 0 << endl;
+    return 0;
+  } else if (sl == k) {
+    cout << 1 << endl;
+    return 0;
+  }
+
+  unordered_set<string> sset;
+  for (int i = 0; i + k <= sl; ++i) {
+    const auto sub = s.substr(i, k);
+    //cout << "i:" << i << ",sub=" << sub << endl;
+    sset.emplace(s.substr(i, k));
+  }
+  cout << sset.size() << endl;
+
   return 0;
 }
