@@ -1,8 +1,6 @@
 
 #include <bits/stdc++.h>
-#include <boost/multiprecision/cpp_int.hpp>
 using namespace std;
-using namespace boost::multiprecision;
 
 // syntax sugar: `for (int i = 0; i < N; ++i)`
 #define rep(i, N) for (int i = 0; i < (int)(N); ++i)
@@ -24,21 +22,18 @@ int main(){
   ll k; // <= 1e6
   cin >> k;
 
-  if ((k % 2 == 0) || (k % 5 == 0)) {
-    cout << -1 << endl;
-    return 0;
+  vector<int> a(1e6+1,0);
+  a[1] = 7%k;
+  rep2(i,2,k+1){
+    a[i] = (a[i-1]*10+7) % k;
   }
-
-  ll cnt = 0;
-  cpp_int target = 0;
-  while (true) {
-    target = target * 10 + 7;
-    ++cnt;
-    if ((target % k) == 0) {
-      break;
+  rep2(i,1,k+1){
+    if (a[i] == 0){
+      cout << i << endl;
+      return 0;
     }
   }
-  cout << cnt << endl;
 
+  cout << -1 << endl;
   return 0;
 }
