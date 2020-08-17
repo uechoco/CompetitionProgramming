@@ -19,10 +19,37 @@ using namespace std;
 #define ld long double
 #define DUMP(v) "," #v ":" << v
 
+// 指定の文字列を繰り返す
+std::string strrepeat(const std::string fill, const std::size_t repeat_num) {
+  std::string result;
+  result.reserve(fill.length() * repeat_num);
+  for(int i = 0; i < static_cast<int>(repeat_num); ++i) {
+    result += fill;
+  }
+  return result;
+}
+
+
+// ABC029 C - Brute-force Attack
 int main(){
   int n;
   cin >> n;
-  cout << "Yes" << endl;
-  cout << DUMP(n) << endl;
+  const int num = pow(3,n);
+  string s = strrepeat("a", n);
+  for (int i = 0; i < num; ++i) {
+    if (i != 0) {
+      for(int j=n-1;j>=0;--j) {
+        if (s[j] != 'c') {
+          s[j]++;
+          for(int k=j+1;k<n;++k) {
+            s[k] = 'a';
+          }
+          break;
+        }
+      }
+    }
+    cout << s << endl;
+  }
+
   return 0;
 }

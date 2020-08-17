@@ -17,12 +17,26 @@ using namespace std;
     std::vector<T> name(d1, initValue);
 #define ll long long
 #define ld long double
-#define DUMP(v) "," #v ":" << v
 
+// ABC043 B - バイナリハックイージー
 int main(){
-  int n;
-  cin >> n;
-  cout << "Yes" << endl;
-  cout << DUMP(n) << endl;
+  string s;
+  cin >> s;
+
+  string ans;
+  rep(i,s.size()){
+    if (s[i] == '0') {
+      ans += "0";
+    } else if (s[i] == '1') {
+      ans += "1";
+    } else {
+      if (ans.size() > 0) {
+        ans.pop_back();
+      }
+    }
+  }
+
+  cout << ans << endl;
+
   return 0;
 }

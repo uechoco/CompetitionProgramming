@@ -17,12 +17,41 @@ using namespace std;
     std::vector<T> name(d1, initValue);
 #define ll long long
 #define ld long double
-#define DUMP(v) "," #v ":" << v
 
+// 指定の文字列を繰り返す
+std::string strrepeat(const std::string fill, const std::size_t repeat_num) {
+  std::string result;
+  result.reserve(fill.length() * repeat_num);
+  for(int i = 0; i < static_cast<int>(repeat_num); ++i) {
+    result += fill;
+  }
+  return result;
+}
+
+// ABC023 B - 手芸王
 int main(){
   int n;
   cin >> n;
-  cout << "Yes" << endl;
-  cout << DUMP(n) << endl;
+  string s;
+  cin >> s;
+
+  int ans = -1;
+  if (n % 2 == 0) {
+    ans = -1;
+  } else {
+    string target = strrepeat("bca", n/6*2) + "b";
+    int rest = n-((n-1)/6*6+1);
+    if (rest == 2) {
+      target = "a" + target + "c";
+    } else if (rest == 4) {
+      target = "ca" + target + "ca";
+    }
+    //cout << "target:" << target << endl;
+    if (s == target) {
+      ans = (n-1) / 2;
+    }
+  }
+
+  cout << ans << endl;
   return 0;
 }
