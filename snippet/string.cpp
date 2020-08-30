@@ -41,6 +41,11 @@ std::string strrepeat(const std::string fill, const std::size_t repeat_num) {
 
 int main(){
   {
+    // 空白文字を含む、改行までの1行をcinから読み取る
+    // string s;
+    // getline(cin, s);
+  }
+  {
     // tolower すべて小文字にする
     cout << "===== tolower" << endl;
     string s = "AbcDeFgHIJklmnOpQ";
