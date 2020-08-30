@@ -29,14 +29,15 @@ int main(){
   rep(i,n) {
     cin >> a[i];
     total += a[i];
+    total %= MOD;
   }
 
-  __int128_t ans = 0;
-  __int128_t curtotal = total;
-  for(int i = 0; i < n-1; ++i) {
-    curtotal -= a[i];
-    ans += (a[i] * curtotal) % MOD;
-    ans = ans % MOD;
+  ll ans = 0;
+  for(int i = 0; i < n; ++i) {
+    total -= a[i];
+    if (total < 0) total += MOD;
+    ans += a[i] * total;
+    ans %= MOD;
   }
 
   ll ans2 = (ll)ans;
