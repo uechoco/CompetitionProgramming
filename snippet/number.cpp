@@ -111,6 +111,10 @@ T leastCommonMultiple(T m, T n) {
 	: 0;
 }
 
+
+// ===========================================================
+// ===========================================================
+
 int main(){
   // 浮動小数点型の桁数を指定出来るマニピュレータ
   cout << std::fixed << std::setprecision(8) << (double)(12.9295871325) << endl;
@@ -191,7 +195,6 @@ int main(){
     cout << "leastCommonMultiple(0,1):" << leastCommonMultiple(0,1) << endl;
     // lcm(4LL,-6LL) = 12
     cout << "leastCommonMultiple(4u,-6l):" << leastCommonMultiple(4LL,-6LL) << endl;
-
   }
   return 0;
 }
